@@ -55,3 +55,39 @@ select(litters.df, litter_number, everything())
 ```{r}
 relocate(litters.df, group)
 ```
+
+
+## 'Filter'
+
+```{r}
+filter(litters.df, gd0_weight < 22)
+```
+
+```{r}
+filter(litters.df, gd0_weight >= 22)
+```
+
+```{r}
+filter(litters.df, gd_of_birth == 20)
+
+```
+
+```{r}
+filter(litters.df, !(gd_of_birth == 20))
+```
+
+```{r}
+filter(litters.df, gd_of_birth != 20)
+```
+
+```{r}
+filter(litters.df, gd0_weight >= 22, gd_of_birth == 20)
+```
+
+```{r}
+filter(litters.df, group == "Mod8")
+```
+
+```{r}
+filter(litters.df, group %in% c("Con7", "Mod7"))
+```
