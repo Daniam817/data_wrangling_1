@@ -14,3 +14,44 @@ litters.df = read_csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Sci
 litters.df = janitor::clean_names(litters.df)
 ```
 
+## 'Select'
+
+Choose some columns and not others.
+
+```{r}
+select(litters.df, group, gd0_weight)
+```
+
+
+```{r}
+select(litters.df, group, gd0_weight:gd_of_birth)
+```
+
+
+```{r}
+select(litters.df, -litter_number)
+```
+
+Renaming columns...
+
+```{r}
+select(litters.df, GROUP = group , LiTTer_Number = litter_number)
+```
+
+```{r}
+rename(litters.df, GROUP = group , LiTTer_Number = litter_number)
+```
+
+Select helpers
+
+```{r}
+select(litters.df, starts_with("gd"))
+```
+
+```{r}
+select(litters.df, litter_number, everything())
+```
+
+```{r}
+relocate(litters.df, group)
+```
