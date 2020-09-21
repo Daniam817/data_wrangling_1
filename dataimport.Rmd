@@ -16,5 +16,17 @@ litters.df = read.csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Sci
 litters.df = janitor::clean_names(litters.df)
 ```
 
+```{r}
+litters.df
+```
+
+```{r}
+head(litters.df)
+tail(litters.df)
+```
+
+```{r}
+skimr::skim(litters.df)
+```
 
 ## Take a look at data
