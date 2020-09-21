@@ -5,6 +5,8 @@ output: github_document
 
 ```{r setup}
 library(tidyverse)
+library(readxl)
+library(haven)
 ```
 
 ## Read in some data 
@@ -15,6 +17,9 @@ Read in the litters dataset.
 litters.df = read.csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv")
 litters.df = janitor::clean_names(litters.df)
 ```
+
+
+## Take a look at data
 
 ```{r}
 litters.df
@@ -29,4 +34,28 @@ tail(litters.df)
 skimr::skim(litters.df)
 ```
 
-## Take a look at data
+## Options to read_csv
+
+check out "?read_csv()" for more info.
+
+
+
+# Other file formats
+
+Read in excel file
+
+```{r}
+mlb.df = read_excel("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/mlb11.xlsx", range = "A1:F7")
+mlb.df
+```
+
+Read in a SAS file 
+
+```{r}
+pulse.df = read_sas("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/public_pulse_data.sas7bdat")
+pulse.df
+
+```
+
+
+
