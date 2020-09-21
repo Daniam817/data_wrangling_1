@@ -6,3 +6,11 @@ output: github_document
 ```{r setup}
 library(tidyverse)
 ```
+
+## Load in the FAS Litters Data
+
+```{r}
+litters.df = read_csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv")
+litters.df = janitor::clean_names(litters.df)
+```
+
