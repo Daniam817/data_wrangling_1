@@ -14,7 +14,7 @@ library(haven)
 Read in the litters dataset.
 
 ```{r}
-litters.df = read.csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv")
+litters.df = read_csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv")
 litters.df = janitor::clean_names(litters.df)
 ```
 
@@ -57,5 +57,12 @@ pulse.df
 
 ```
 
+## Exporting Data
+
+Export the mlb sub-table.
+
+```{r}
+write_csv(mlb.df, "/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/mlb_subtable.csv")
+```
 
 
