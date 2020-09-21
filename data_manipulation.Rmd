@@ -103,4 +103,10 @@ mutate(
 
 ```
 
+## 'Arrange'
+
+```{r}
+arrange(litters.df, pups_born_alive)
+```
+
 
