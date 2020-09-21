@@ -428,3 +428,51 @@ arrange(litters.df, pups_born_alive)
     ## 10 Con7  #4/2/95/3-3         NA          NA            20               6
     ## # ... with 39 more rows, and 2 more variables: pups_dead_birth <dbl>,
     ## #   pups_survive <dbl>
+
+## ‘%\>%’
+
+``` r
+litters.data.row = read_csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   Group = col_character(),
+    ##   `Litter Number` = col_character(),
+    ##   `GD0 weight` = col_double(),
+    ##   `GD18 weight` = col_double(),
+    ##   `GD of Birth` = col_double(),
+    ##   `Pups born alive` = col_double(),
+    ##   `Pups dead @ birth` = col_double(),
+    ##   `Pups survive` = col_double()
+    ## )
+
+``` r
+litters.clean.name = janitor::clean_names(litters.data.row)
+litters.data.selected = select(litters.clean.name , -pups_survive)
+litters.mutated = mutate(litters.data.selected, wt_gain = gd18_weight - gd0_weight)
+litters.without.missing = drop_na(litters.mutated, gd0_weight)
+```
+
+USE THE PIPE OPERATOR INSTEAD
+
+``` r
+litters.df =
+   read_csv("/Users/danie/Documents/Columbia Semester 1 Files/Data Science  R Code/Data Wrangling/data_wrangling_1/data/FAS_litters.csv") %>% 
+  janitor::clean_names() %>%
+  select(-pups_survive) %>% 
+  mutate(wt_gain = gd18_weight - gd0_weight) %>%
+  drop_na(gd0_weight)
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   Group = col_character(),
+    ##   `Litter Number` = col_character(),
+    ##   `GD0 weight` = col_double(),
+    ##   `GD18 weight` = col_double(),
+    ##   `GD of Birth` = col_double(),
+    ##   `Pups born alive` = col_double(),
+    ##   `Pups dead @ birth` = col_double(),
+    ##   `Pups survive` = col_double()
+    ## )
